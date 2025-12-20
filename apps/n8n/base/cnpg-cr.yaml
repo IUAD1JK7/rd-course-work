@@ -4,8 +4,7 @@ metadata:
   name: example-postgres
 spec:
   instances: 1
-  postgresql:
-    version: "16"
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.4
 
   storage:
     size: 1Gi
