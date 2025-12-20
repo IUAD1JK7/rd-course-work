@@ -17,5 +17,5 @@ spec:
       host: postgres-example-rw
       port: 5432
       username: n8n-db-user-staging
-      password: n8n-db-pwd-staging
+      password: some-password
       database: n8n-staging-db

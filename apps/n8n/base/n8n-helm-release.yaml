@@ -44,6 +44,12 @@ spec:
       password: placeholder
       database: placeholder
 
+    readinessProbe:
+       httpGet:
+          path: /healthz
+          port: 5678
+       initialDelaySeconds: 5
+       periodSeconds: 5
   
     service:
       type: ClusterIP
