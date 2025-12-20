@@ -24,7 +24,7 @@ spec:
       pullPolicy: IfNotPresent
 
     main:
-      replicaCount: 1
+      count: 1
 
       resources:
         requests:
@@ -34,9 +34,16 @@ spec:
           cpu: "1"
           memory: "1Gi"
 
-    extraEnvFrom:
-      - configMapRef:
-          name: n8n-config
+    db:
+      type: postgresdb
+
+    externalPostgresql:
+      host: placeholder
+      port: placeholder
+      username: placeholder
+      password: placeholder
+      database: placeholder
+
   
     service:
       type: ClusterIP

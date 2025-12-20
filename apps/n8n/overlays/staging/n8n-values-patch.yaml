@@ -4,7 +4,8 @@ metadata:
   name: n8n
 spec:
   values:
-    replicaCount: 1
+    main:
+      count: 1
     resources:
       requests:
         cpu: "100m"
@@ -12,3 +13,9 @@ spec:
       limits:
         cpu: "500m"
         memory: "512Mi"
+    externalPostgresql:
+      host: postgres-example-rw
+      port: 5432
+      username: n8n-db-user-staging
+      password: n8n-db-pwd-staging
+      database: n8n-staging-db

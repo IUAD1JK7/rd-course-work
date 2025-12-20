@@ -3,6 +3,7 @@ namespace: staging
 resources:
   - ../../base
   - namespace.yaml
-
+  - db-secret.yaml
 patches:
   - path: n8n-values-patch.yaml
+  - path: cnpg-values-patch.yaml

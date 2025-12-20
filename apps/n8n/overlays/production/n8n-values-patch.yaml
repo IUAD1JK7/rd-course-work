@@ -4,7 +4,8 @@ metadata:
   name: n8n
 spec:
   values:
-    replicaCount: 3
+    main:
+      count: 3
     resources:
       requests:
         cpu: "250m"
@@ -12,3 +13,9 @@ spec:
       limits:
         cpu: "800m"
         memory: "512Mi"
+    externalPostgresql:
+      host: postgres-example-rw
+      port: 5432
+      username: n8n-db-user-prod
+      password: n8n-db-pwd-prod
+      database: n8n-prod-db

@@ -10,7 +10,6 @@ spec:
 
   bootstrap:
     initdb:
-      database: placeholder
-      owner: placeholder
-      secret:
-         name: n8n-db-user-secret
+      database: n8n-staging-db
+      owner: n8n-db-user-staging
+

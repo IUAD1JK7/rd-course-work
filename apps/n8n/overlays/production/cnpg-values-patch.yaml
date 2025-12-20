@@ -3,14 +3,13 @@ kind: Cluster
 metadata:
   name: example-postgres
 spec:
-  instances: 1
+  instances: 3
 
   storage:
     size: 1Gi
 
   bootstrap:
     initdb:
-      database: placeholder
-      owner: placeholder
-      secret:
-         name: n8n-db-user-secret
+      database: n8n-prod-db
+      owner: n8n-db-user-prod
+
