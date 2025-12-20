@@ -1,0 +1,45 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - cnpg-helm-release.yaml 
+  - cnpg-cr.yaml 
+  - n8n-helm-release.yaml 
+
+configMapGenerator:
+  - name: n8n-config
+    literals:
+       - DB_TYPE=postgresdb
+       - DB_POSTGRESDB_HOST=postgres
+       - DB_POSTGRESDB_PORT="5432"
+       - DB_POSTGRESDB_DATABASE=n8n
+       - DB_POSTGRESDB_USER=n8n
+       - EXECUTIONS_MODE=queue
+       - QUEUE_BULL_REDIS_HOST=redis
+       - QUEUE_BULL_REDIS_PORT="6379"
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+replacements:
+  # Database name
+  - source:
+      kind: ConfigMap
+      name: n8n-config
+      fieldPath: data.DB_POSTGRESDB_DATABASE
+    targets:
+      - select:
+          kind: Cluster
+        fieldPaths:
+          - spec.bootstrap.initdb.database
+
+  # Database owner / user
+  - source:
+      kind: ConfigMap
+      name: n8n-config
+      fieldPath: data.DB_POSTGRESDB_USER
+    targets:
+      - select:
+          kind: Cluster
+        fieldPaths:
+          - spec.bootstrap.initdb.owner

@@ -1,0 +1,8 @@
+namespace: production
+
+resources:
+  - ../../base
+  - namespace.yaml
+  - hpa.yaml
+patches:
+  - path: n8n-values-patch.yaml
