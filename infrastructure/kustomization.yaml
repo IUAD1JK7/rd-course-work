@@ -4,4 +4,6 @@ kind: Kustomization
 resources:
   - n8n-helm-repository.yaml
   - cnpg-helm-repository.yaml
+  - cnpg-helm-release.yaml
+
 
