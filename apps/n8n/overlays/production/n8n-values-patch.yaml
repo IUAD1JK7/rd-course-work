@@ -3,10 +3,6 @@ kind: HelmRelease
 metadata:
   name: n8n
 spec:
-  dependsOn:
-    - name: tls-production-secret
-      kind: Secret
-      namespace: production
   values:
     main:
       count: 3
