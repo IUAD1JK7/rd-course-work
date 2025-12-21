@@ -57,16 +57,14 @@ spec:
 
     ingress:
       enabled: true
-      className: nginx
-      annotations:
-        nginx.ingress.kubernetes.io/proxy-body-size: "64m"
+      className: traefik
       hosts:
         - host: n8n.example.com
           paths:
             - path: /
               pathType: Prefix
       tls:
-        - secretName: n8n-tls
+#        - secretName: n8n-tls
           hosts:
             - n8n.example.com
 

@@ -19,3 +19,12 @@ spec:
       username: n8n-db-user-staging
       password: some-password
       database: n8n-staging-db
+
+    ingress:
+       hosts:
+         - host: n8n.staging.local
+       tls:
+#         - secretName: n8n-tls
+           hosts:
+             - n8n.staging.local
+

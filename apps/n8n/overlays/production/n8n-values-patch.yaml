@@ -19,3 +19,10 @@ spec:
       username: n8n-db-user-prod
       password: some-password
       database: n8n-prod-db
+    ingress:
+       hosts:
+         - host: n8n.local
+       tls:
+#         - secretName: n8n-tls
+           hosts:
+             - n8n.local
