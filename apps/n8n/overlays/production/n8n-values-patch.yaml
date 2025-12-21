@@ -20,14 +20,13 @@ spec:
       password: some-password
       database: n8n-prod-db
     ingress:
-      tls:
-          secretName: tls-production-secret
-        - hosts:
-            - n8n.local
       hosts:
         - host: n8n.local
           paths:
             - path: /
               pathType: Prefix
-
+      tls:
+         - secretName: tls-production-secret
+           hosts:
+            - n8n.local
 
