@@ -1,0 +1,15 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres-db
+spec:
+  instances: 3
+
+  storage:
+    size: 1Gi
+
+  bootstrap:
+    initdb:
+      database: n8n-prod-db
+      owner: n8n-db-user-prod
+

@@ -1,0 +1,11 @@
+namespace: production
+
+resources:
+  - ../../base
+  - namespace.yaml
+  - hpa.yaml
+  - db-secret.yaml
+  - tls-production-secret.yaml
+patches:
+  - path: n8n-values-patch.yaml
+  - path: db-cnpg-values-patch.yaml
