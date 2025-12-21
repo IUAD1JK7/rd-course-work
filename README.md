@@ -1,13 +1,15 @@
-#Курсовий проект Docker&Kubernetes 
-Застосунок для деплою: AI Workflow Automation Platform & Tools - n8n
-БД: PostgreSQL (CloudNativePG - PostgreSQL Operator for Kubernetes)
+# Курсовий проект Docker&Kubernetes 
+1) Застосунок для деплою: 
+ n8n - AI Workflow Automation Platform & Tools - 
+2) База даних: 
+ PostgreSQL (CloudNativePG - PostgreSQL Operator for Kubernetes)
 
 
-#Результат роботи
-##Створено окремий публічний репозиторій з кодом інфраструктури
+# Результат роботи
+### Створено окремий публічний репозиторій з кодом інфраструктури
 https://github.com/IUAD1JK7/rd-course-work.git
 
-##Команда flux get helmreleases -A показує, що всі релізи (app, operator) у статусі Ready
+### Команда flux get helmreleases -A показує, що всі релізи (app, operator) у статусі Ready
 Всі релізи (n8n, cloudnative-pg) у статусі Ready
 ```
 C:\olha\rd-course-work>kubectl get helmreleases -A
@@ -18,7 +20,7 @@ staging       n8n              6h10m   True    Helm upgrade succeeded for releas
 ```
 
 
-##Команда flux get kustomizations -A показує, що оверлеї для обох середовищ синхронізовані
+### Команда flux get kustomizations -A показує, що оверлеї для обох середовищ синхронізовані
 Оверлеї для обох середовищ (staging, production) синхронізовані
 ```
 C:\olha\rd-course-work>flux get kustomizations -A
@@ -29,7 +31,7 @@ flux-system	n8n-production	dev@sha1:f8eb4e71	False    	True 	Applied revision: d
 flux-system	n8n-staging   	dev@sha1:f8eb4e71	False    	True 	Applied revision: dev@sha1:f8eb4e71	
 ```
 
-##Налаштований Ingress
+### Налаштований Ingress
 ```
 C:\olha\rd-course-work>kubectl get ingress -A
 NAMESPACE    NAME   CLASS     HOSTS               ADDRESS         PORTS     AGE
@@ -37,7 +39,7 @@ production   n8n    traefik   n8n.local           192.168.127.2   80, 443   6h11
 staging      n8n    traefik   n8n.staging.local   192.168.127.2   80, 443   6h11m
 ```
 
-##У кластері існують два неймспейси (для staging та production середовищ) з різною конфігурацією подів (в проді працює HPA)
+### У кластері існують два неймспейси (для staging та production середовищ) з різною конфігурацією подів (в проді працює HPA)
 HPA - HorizontalPodAutoscaler
 ```
 C:\olha\rd-course-work>kubectl get hpa -A
@@ -71,14 +73,14 @@ staging       postgres-db-1                             1/1     Running     0   
 ```
 
 
-##Застосунок успішно підключається до бази даних, створеної оператором
+### Застосунок успішно підключається до бази даних, створеної оператором
 Вікно застосунку у середовищі production
 ![Вікно застосунку у середовищі production](prod.app.png)
 
 Вікно застосунку у середовищі staging
 ![Вікно застосунку у середовищі staging](staging.png)
 
-##Self-Healing
+### Self-Healing
 Після kubectl delete helmrelease n8n -n production поди застосунку n8n відновлюются протягом декількох хвилин:
 ```
 C:\olha\rd-course-work>kubectl get pods -n production
