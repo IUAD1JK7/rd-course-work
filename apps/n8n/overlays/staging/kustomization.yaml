@@ -7,3 +7,4 @@ resources:
 patches:
   - path: n8n-values-patch.yaml
   - path: cnpg-values-patch.yaml
+  - path: db-cnpg-values-patch.yaml
