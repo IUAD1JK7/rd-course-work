@@ -21,10 +21,11 @@ spec:
       database: n8n-staging-db
 
     ingress:
-       hosts:
-         - host: n8n.staging.local
-       tls:
-#         - secretName: n8n-tls
-           hosts:
-             - n8n.staging.local
-
+      hosts:
+        - host: n8n.staging.local
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+          hosts:
+            - n8n.staging.local
