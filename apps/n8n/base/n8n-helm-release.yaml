@@ -59,12 +59,12 @@ spec:
       enabled: true
       className: traefik
       hosts:
-        - host: n8n.example.com
+        - host: placeholder
           paths:
             - path: /
               pathType: Prefix
       tls:
 #        - secretName: n8n-tls
-          hosts:
-            - n8n.example.com
+         - hosts:
+            - placeholder
 
