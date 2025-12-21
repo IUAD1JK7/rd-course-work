@@ -1,14 +1,14 @@
-#Êóðñîâèé ïðîåêò Docker&Kubernetes 
-Çàñòîñóíîê äëÿ äåïëîþ: AI Workflow Automation Platform & Tools - n8n
-ÁÄ: PostgreSQL (CloudNativePG - PostgreSQL Operator for Kubernetes)
+#ÐšÑƒÑ€ÑÐ¾Ð²Ð¸Ð¹ Ð¿Ñ€Ð¾ÐµÐºÑ‚ Docker&Kubernetes 
+Ð—Ð°ÑÑ‚Ð¾ÑÑƒÐ½Ð¾Ðº Ð´Ð»Ñ Ð´ÐµÐ¿Ð»Ð¾ÑŽ: AI Workflow Automation Platform & Tools - n8n
+Ð‘Ð”: PostgreSQL (CloudNativePG - PostgreSQL Operator for Kubernetes)
 
 
-#Ðåçóëüòàò ðîáîòè
-##Ñòâîðåíî îêðåìèé ïóáë³÷íèé ðåïîçèòîð³é ç êîäîì ³íôðàñòðóêòóðè
+#Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ñ€Ð¾Ð±Ð¾Ñ‚Ð¸
+##Ð¡Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾ Ð¾ÐºÑ€ÐµÐ¼Ð¸Ð¹ Ð¿ÑƒÐ±Ð»Ñ–Ñ‡Ð½Ð¸Ð¹ Ñ€ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ñ–Ð¹ Ð· ÐºÐ¾Ð´Ð¾Ð¼ Ñ–Ð½Ñ„Ñ€Ð°ÑÑ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ð¸
 https://github.com/IUAD1JK7/rd-course-work.git
 
-##Êîìàíäà flux get helmreleases -A ïîêàçóº, ùî âñ³ ðåë³çè (app, operator) ó ñòàòóñ³ Ready
-Âñ³ ðåë³çè (n8n, cloudnative-pg) ó ñòàòóñ³ Ready
+##ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° flux get helmreleases -A Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ”, Ñ‰Ð¾ Ð²ÑÑ– Ñ€ÐµÐ»Ñ–Ð·Ð¸ (app, operator) Ñƒ ÑÑ‚Ð°Ñ‚ÑƒÑÑ– Ready
+Ð’ÑÑ– Ñ€ÐµÐ»Ñ–Ð·Ð¸ (n8n, cloudnative-pg) Ñƒ ÑÑ‚Ð°Ñ‚ÑƒÑÑ– Ready
 ```
 C:\olha\rd-course-work>kubectl get helmreleases -A
 NAMESPACE     NAME             AGE     READY   STATUS
@@ -18,8 +18,8 @@ staging       n8n              6h10m   True    Helm upgrade succeeded for releas
 ```
 
 
-##Êîìàíäà flux get kustomizations -A ïîêàçóº, ùî îâåðëå¿ äëÿ îáîõ ñåðåäîâèù ñèíõðîí³çîâàí³
-Îâåðëå¿ äëÿ îáîõ ñåðåäîâèù (staging, production) ñèíõðîí³çîâàí³
+##ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° flux get kustomizations -A Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ”, Ñ‰Ð¾ Ð¾Ð²ÐµÑ€Ð»ÐµÑ— Ð´Ð»Ñ Ð¾Ð±Ð¾Ñ… ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð¾Ð²Ð°Ð½Ñ–
+ÐžÐ²ÐµÑ€Ð»ÐµÑ— Ð´Ð»Ñ Ð¾Ð±Ð¾Ñ… ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰ (staging, production) ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð¾Ð²Ð°Ð½Ñ–
 ```
 C:\olha\rd-course-work>flux get kustomizations -A
 NAMESPACE  	NAME          	REVISION         	SUSPENDED	READY	MESSAGE                             
@@ -29,7 +29,7 @@ flux-system	n8n-production	dev@sha1:f8eb4e71	False    	True 	Applied revision: d
 flux-system	n8n-staging   	dev@sha1:f8eb4e71	False    	True 	Applied revision: dev@sha1:f8eb4e71	
 ```
 
-##Íàëàøòîâàíèé Ingress
+##ÐÐ°Ð»Ð°ÑˆÑ‚Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ingress
 ```
 C:\olha\rd-course-work>kubectl get ingress -A
 NAMESPACE    NAME   CLASS     HOSTS               ADDRESS         PORTS     AGE
@@ -37,7 +37,7 @@ production   n8n    traefik   n8n.local           192.168.127.2   80, 443   6h11
 staging      n8n    traefik   n8n.staging.local   192.168.127.2   80, 443   6h11m
 ```
 
-##Ó êëàñòåð³ ³ñíóþòü äâà íåéìñïåéñè (äëÿ staging òà production ñåðåäîâèù) ç ð³çíîþ êîíô³ãóðàö³ºþ ïîä³â (â ïðîä³ ïðàöþº HPA)
+##Ð£ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ñ– Ñ–ÑÐ½ÑƒÑŽÑ‚ÑŒ Ð´Ð²Ð° Ð½ÐµÐ¹Ð¼ÑÐ¿ÐµÐ¹ÑÐ¸ (Ð´Ð»Ñ staging Ñ‚Ð° production ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰) Ð· Ñ€Ñ–Ð·Ð½Ð¾ÑŽ ÐºÐ¾Ð½Ñ„Ñ–Ð³ÑƒÑ€Ð°Ñ†Ñ–Ñ”ÑŽ Ð¿Ð¾Ð´Ñ–Ð² (Ð² Ð¿Ñ€Ð¾Ð´Ñ– Ð¿Ñ€Ð°Ñ†ÑŽÑ” HPA)
 HPA - HorizontalPodAutoscaler
 ```
 C:\olha\rd-course-work>kubectl get hpa -A
@@ -45,7 +45,7 @@ NAMESPACE    NAME      REFERENCE        TARGETS       MINPODS   MAXPODS   REPLIC
 production   n8n-hpa   Deployment/n8n   cpu: 1%/70%   2         5         2          6h21m
 ```
 
-ª ïîäè â îáîõ íåéìñïåéñàõ - staging, production 
+Ð„ Ð¿Ð¾Ð´Ð¸ Ð² Ð¾Ð±Ð¾Ñ… Ð½ÐµÐ¹Ð¼ÑÐ¿ÐµÐ¹ÑÐ°Ñ… - staging, production 
 ```
 C:\olha\rd-course-work>kubectl get pods -A 
 NAMESPACE     NAME                                      READY   STATUS      RESTARTS        AGE
@@ -71,15 +71,15 @@ staging       postgres-db-1                             1/1     Running     0   
 ```
 
 
-##Çàñòîñóíîê óñï³øíî ï³äêëþ÷àºòüñÿ äî áàçè äàíèõ, ñòâîðåíî¿ îïåðàòîðîì
-Â³êíî çàñòîñóíêó ó ñåðåäîâèù³ production
-![Â³êíî çàñòîñóíêó ó ñåðåäîâèù³ production](prod.app.png)
+##Ð—Ð°ÑÑ‚Ð¾ÑÑƒÐ½Ð¾Ðº ÑƒÑÐ¿Ñ–ÑˆÐ½Ð¾ Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡Ð°Ñ”Ñ‚ÑŒÑÑ Ð´Ð¾ Ð±Ð°Ð·Ð¸ Ð´Ð°Ð½Ð¸Ñ…, ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾Ñ— Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð¼
+Ð’Ñ–ÐºÐ½Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½ÐºÑƒ Ñƒ ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰Ñ– production
+![Ð’Ñ–ÐºÐ½Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½ÐºÑƒ Ñƒ ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰Ñ– production](prod.app.png)
 
-Â³êíî çàñòîñóíêó ó ñåðåäîâèù³ staging
-![Â³êíî çàñòîñóíêó ó ñåðåäîâèù³ staging](staging.png)
+Ð’Ñ–ÐºÐ½Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½ÐºÑƒ Ñƒ ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰Ñ– staging
+![Ð’Ñ–ÐºÐ½Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½ÐºÑƒ Ñƒ ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰Ñ– staging](staging.png)
 
 ##Self-Healing
-Ï³ñëÿ kubectl delete helmrelease n8n -n production ïîäè çàñòîñóíêó n8n â³äíîâëþþòñÿ ïðîòÿãîì äåê³ëüêîõ õâèëèí:
+ÐŸÑ–ÑÐ»Ñ kubectl delete helmrelease n8n -n production Ð¿Ð¾Ð´Ð¸ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½ÐºÑƒ n8n Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÑŽÑŽÑ‚ÑÑ Ð¿Ñ€Ð¾Ñ‚ÑÐ³Ð¾Ð¼ Ð´ÐµÐºÑ–Ð»ÑŒÐºÐ¾Ñ… Ñ…Ð²Ð¸Ð»Ð¸Ð½:
 ```
 C:\olha\rd-course-work>kubectl get pods -n production
 NAME                  READY   STATUS    RESTARTS   AGE
