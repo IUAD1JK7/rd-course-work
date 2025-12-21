@@ -4,6 +4,7 @@ resources:
   - ../../base
   - namespace.yaml
   - db-secret.yaml
+  - tls-staging-secret.yaml
 patches:
   - path: n8n-values-patch.yaml
   - path: db-cnpg-values-patch.yaml

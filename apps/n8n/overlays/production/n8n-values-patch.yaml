@@ -3,6 +3,10 @@ kind: HelmRelease
 metadata:
   name: n8n
 spec:
+  dependsOn:
+    - name: tls-production-secret
+      kind: Secret
+      namespace: production
   values:
     main:
       count: 3
@@ -27,6 +31,7 @@ spec:
               pathType: Prefix
 
       tls:
+        - secretName: tls-production-secret
         - hosts:
             - n8n.local
 
